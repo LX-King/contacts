@@ -1,0 +1,60 @@
+<!DOCTYPE HTML>
+<HTML>
+	<HEAD>
+		<TITLE>Contacts</TITLE>
+
+		<link rel="stylesheet" type="text/css" href="css/application.css" charset="utf-8">
+		<script type="text/javascript" src="lib/json2.js" charset="utf-8"></script>
+		<script type="text/javascript" src="lib/jquery.js" charset="utf-8"></script>
+		<script type="text/javascript" src="lib/jquery.tmpl.js" charset="utf-8"></script>
+		<script type="text/javascript" src="lib/fc.1.0.js" charset="utf-8"></script>
+		<script type="text/javascript" src="lib/fc.list.js"></script>
+		<script type="text/javascript" src="lib/fc.model.ajax.js"></script>
+		<script type="text/javascript" src="lib/fc.model.local.js"></script>
+		<script type="text/javascript" src="lib/fc.model.filter.js"></script>
+		<script type="text/javascript" src="app/model/contact.js"></script>
+		<script type="text/javascript" src="app/controllers/sidebar.js"></script>
+		<!--<script type="text/javascript" src="app/view/"></script>-->
+		<script type="text/x-jquery-tmpl" id="contactsTemplate">
+			<li class="item">
+				{{if fullName()}}
+					<span>${fullName()}</span>
+				{{else}}
+					<span>No Name</span>
+				{{/if}}
+			</li>
+		</script>
+		<script type="text/javascript">
+			
+		</script>
+	</HEAD>
+	<BODY>
+		<div id="sidebar">
+			<ul class="items">
+			</ul>
+			<footer>
+				<button>New Contacts</button>
+			</footer>
+		</div>
+
+		<div class="vdivide">
+			<div id="contacts">
+				<div class="show">
+					<ul class="option">
+						<li class="optEdit">Edit contact</li>
+						<li class="optEmail">Email contact</li>
+					</ul>
+					<div class="content"></div>
+				</div>
+
+				<div class="edit">
+					<ul class="options">
+						<li class="optSave default">Save contact</li>
+						<li class="optDestory">Delete contact</li>
+					</ul>
+					<div class="contect"></div>
+				</div>
+			</div>
+		</div>
+	</BODY>
+</HTML>
