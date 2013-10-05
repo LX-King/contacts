@@ -1,4 +1,10 @@
-Sublime-2-Installed-packge---configure
-======================================
+Contacts JS APP
+Version 1.0
 
-Sublime 2 My Configure &amp; installed package 
+
+
+Author:LiuXiang
+Email:LXiang.tyut@gmail.com
+
+
+2013.10.05 China Taiyuan of Shanxi Province ,China
