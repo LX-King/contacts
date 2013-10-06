@@ -7,54 +7,155 @@
 		<script type="text/javascript" src="lib/json2.js" charset="utf-8"></script>
 		<script type="text/javascript" src="lib/jquery.js" charset="utf-8"></script>
 		<script type="text/javascript" src="lib/jquery.tmpl.js" charset="utf-8"></script>
-		<script type="text/javascript" src="lib/fc.1.0.js" charset="utf-8"></script>
+		
+    <script type="text/javascript" src="lib/fc.1.2.js" charset="utf-8"></script>
 		<script type="text/javascript" src="lib/fc.list.js"></script>
 		<script type="text/javascript" src="lib/fc.model.ajax.js"></script>
 		<script type="text/javascript" src="lib/fc.model.local.js"></script>
 		<script type="text/javascript" src="lib/fc.model.filter.js"></script>
-		<script type="text/javascript" src="app/model/contact.js"></script>
+		<script type="text/javascript" src="app/utils.js"></script>
+
+    <script type="text/javascript" src="app/model/contact.js"></script>
 		<script type="text/javascript" src="app/controllers/sidebar.js"></script>
-		<!--<script type="text/javascript" src="app/view/"></script>-->
-		<script type="text/x-jquery-tmpl" id="contactsTemplate">
-			<li class="item">
-				{{if fullName()}}
-					<span>${fullName()}</span>
-				{{else}}
-					<span>No Name</span>
-				{{/if}}
-			</li>
-		</script>
-		<script type="text/javascript">
-			
-		</script>
-	</HEAD>
-	<BODY>
-		<div id="sidebar">
-			<ul class="items">
-			</ul>
-			<footer>
-				<button>New Contacts</button>
-			</footer>
-		</div>
+    <SCRIPT TYPE="text/javascript" src="app/controllers/contacts.js"></SCRIPT>
+    <script type="text/javascript" src="app/app.js"></script>
+		
 
-		<div class="vdivide">
-			<div id="contacts">
-				<div class="show">
-					<ul class="option">
-						<li class="optEdit">Edit contact</li>
-						<li class="optEmail">Email contact</li>
-					</ul>
-					<div class="content"></div>
-				</div>
+		 <script type="text/x-jquery-tmpl" id="contactsTemplate">
+    <li class="item">
+      <img src="images/missing.png" />
+      {{if fullName()}}
+        <span class="name">${fullName()}</span>
+      {{else}}
+        <span class="name empty">No Name</span>
+      {{/if}}
+      <span class="cta">&gt;</span>
+    </li>
+  </script>  
+  
+  <script type="text/x-jquery-tmpl" id="contactTemplate">
+    <label>
+      <span>Name</span>
+      ${first_name} ${last_name}
+    </label>
 
-				<div class="edit">
-					<ul class="options">
-						<li class="optSave default">Save contact</li>
-						<li class="optDestory">Delete contact</li>
-					</ul>
-					<div class="contect"></div>
-				</div>
-			</div>
-		</div>
-	</BODY>
-</HTML>
+    <label>
+      <span>Email</span>
+      {{if email}}
+        ${email}
+      {{else}}
+        <div class="empty">Blank</div>
+      {{/if}}
+    </label>
+
+    {{if mobile}}
+    <label>
+      <span>Mobile number</span>
+      ${mobile}
+    </label>
+    {{/if}}
+
+    {{if work}}
+    <label>
+      <span>Work number</span>
+      ${work}
+    </label>
+    {{/if}}
+
+    {{if address}}
+    <label>
+      <span>Address</span>
+      <pre>${address}</pre>
+    </label>
+    {{/if}}
+
+    <label>
+      <span>Notes</span>
+      {{if notes}}
+        ${notes}
+      {{else}}
+        <div class="empty">Blank</div>
+      {{/if}}
+    </label>
+  </script>
+  
+  <script type="text/x-jquery-tmpl" id="editContactTemplate">
+    <label>
+      <span>First name</span>
+      <input type="text" name="first_name" value="${first_name}" autofocus>
+    </label>
+
+    <label>
+      <span>Last name</span>
+      <input type="text" name="last_name" value="${last_name}">
+    </label>
+
+    <label>
+      <span>Email</span>
+      <input type="text" name="email" value="${email}">
+    </label>
+
+    <label>
+      <span>Mobile number</span>
+      <input type="text" name="mobile" value="${mobile}">
+    </label>
+
+    <label>
+      <span>Work number</span>
+      <input type="text" name="work" value="${work}">
+    </label>
+
+    <label>
+      <span>Address</span>
+      <textarea name="address">${address}</textarea>
+    </label>
+
+    <label>
+      <span>Notes</span>
+      <textarea name="notes">${notes}</textarea>
+    </label>
+  </script>  
+</head>
+<body>
+  <header id="title">
+    <h1>FC Contacts</h1>
+  </header>
+  
+  <div id="wrapper">
+  
+  <div id="sidebar">
+    <div class="search">
+      <input type="search" placeholder="Search" results="0" incremental="true" autofocus>
+    </div>
+    
+    <ul class="items">
+    </ul>
+    
+    <footer>
+      <button>New contact</button>
+    </footer>
+  </div>
+  
+  <div class="vdivide"></div>
+  
+  <div id="contacts">
+    <div class="show">
+      <ul class="options">
+        <li class="optEdit">Edit contact</li>
+        <li class="optEmail">Email contact</li>
+      </ul>
+      <div class="content"></div>
+    </div>
+    
+    <div class="edit">
+      <ul class="options">
+        <li class="optSave default">Save contact</li>
+        <li class="optDestroy">Delete contact</li>
+      </ul>
+      <div class="content"></div>
+    </div>
+  </div>
+  
+  </div>
+</body>
+</html>
